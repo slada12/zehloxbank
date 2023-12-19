@@ -1,0 +1,477 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Zehliox | Dashboard</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="csrf-token" value="n4uuHpP3C4qLUndJ1NlvLrZiGLBPmQY2kb3QtGy7">
+    <link rel="shortcut icon" href="favicon_16.ico">
+    <link rel="bookmark" href="favicon_16.ico">
+    <!-- site css -->
+    <link rel="stylesheet" href="css/site.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+    
+    <link type="text/css" rel="stylesheet" href="css/axios-loader.css">
+    <style>
+        .unable_to_transfer {
+            padding: 20px;
+            background: #f1f0ef;
+            border-radius: 3px;
+            font-size: 15px;
+        }
+    </style>
+    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="https://zehliox.com/design_2/dist/js/html5shiv.js"></script>
+    <script src="https://zehliox.com/design_2/dist/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/site.min.js"></script>
+</head>
+
+<body>
+<style>
+
+</style>
+<!--nav-->
+<nav role="navigation" class="navbar navbar-custom">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button data-target="#bs-content-row-navbar-collapse-5" data-toggle="collapse" class="navbar-toggle" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a href="./dashboard.html" class="navbar-brand logo_init_2"></a> </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Logout</a></li>
+                <!-- <li class="disabled"><a href="#">Link</a></li> -->
+                <li class="dropdown"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <div class="user_avatar_dp" style="
+                background: url(images/f251c299c804c2d9a821c50a1503121611992bcf.jpeg);
+                width: 30px;
+                height: 30px;
+                border-radius: 100px;
+                float: left;
+                background-position: top;
+                background-size: cover;
+                margin-right: 10px;
+                margin-top: -4px;
+
+                "> </div><div id="full_name">Loading...</div><b class="caret"></b>
+                <div class="customer_status">Customer</div>
+            </a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="./account-details.html">Account type: Current </a></li>
+                        <li class="divider"></li>
+                        <li><a href="./account-details.html">View Account Details</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!--header-->
+<div class="container-fluid">
+    <!--documents-->
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
+            <ul class="list-group panel">
+                <li class="list-group-item"><a href="./dashboard.html"><i class="glyphicon glyphicon-home"></i>Dashboard </a></li>
+                <li class="list-group-item"><a href="./account-details.html"><i class="glyphicon glyphicon-certificate"></i>Account Details</a></li>
+                <li class="list-group-item"><a href="./transfer.html"><i class="glyphicon glyphicon-th-list"></i>Transfer </a></li>
+                <li class="list-group-item"><a href="./transactions.html"><i class="glyphicon glyphicon-bell"></i>Transactions Statement</a></li>
+
+                <li> <a href="#demo4" class="list-group-item " data-toggle="collapse"><i class=" glyphicon glyphicon-credit-card"></i>Card Management <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <div class="collapse" id="demo4">
+                        
+                        <a href="./card.html" class="list-group-item">Request for Debit / Credit Card </a>
+                    </div>
+                </li>
+
+                <li class="list-group-item"><a href="./loan.html"><i class="glyphicon glyphicon-calendar"></i>Loan</a></li>
+                <li> <a href="#demo3" class="list-group-item " data-toggle="collapse"><i class=" glyphicon glyphicon-cog"></i>Security Settings <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <div class="collapse" id="demo3">
+                        <a href="./change-password.html" class="list-group-item">Change Password</a>  </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-9 content">
+                <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Make a Transfer</h3> </div>
+        <div class="panel-body">
+            <div class="content-row">
+                <div class="row">
+                    <section class="content-innerr-a">
+                        <div class="col-md-6">
+                            <div class="box">
+
+                                <div class="ajax-loading_1"></div>
+                                <div class="input_error" id="unable_to_send"></div>
+                                <div class="input_error" id="amount_n_er"></div>
+                                <div id="transfer_failed_er"></div>
+
+                                <div id="other_filed">
+
+                                    <div class="other_form_2">
+
+                                        <form class="form" onsubmit="submitTransfer(event)">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                <label for="select_account">Select Account</label>
+                                                <select id="select_account" class="form-control">
+                                                    <option value="">Select Account</option>
+                                                    <option value="318">Current - 1924371567</option>
+                                                </select>
+                                                    <p id="account_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="amount">Receiver's bank Name</label>
+                                                    <input class="form-control" id="r_b_n" name="receiver_bank_name" type="text">
+                                                    <p id="r_b_n_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="amount">Receiver's Name</label>
+                                                    <input class="form-control" id="r_n" name="r_n" type="text">
+                                                    <p id="r_n_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="amount">Receiver's Account Number</label>
+                                                    <input class="form-control" id="r_ac_n" name="receiver_account_number" type="text">
+                                                    <p id="r_ac_n_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="amount">Swift/ ABA Routing Number</label>
+                                                    <input class="form-control" id="swift" name="swift" type="text">
+                                                    <p id="swift_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="amount">Amount($)</label>
+                                                    <input class="form-control" id="amount" name="amount" type="text">
+                                                    <p id="amount_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="amount">Fund Transfer Option</label>
+                                                    <select class="form-control" id="transfer_option">
+                                                        <option value="">Select</option>
+                                                        <option value="Local Transfer">Local Transfer</option>
+                                                        <option value="International Transfer">International Transfer</option>
+                                                    </select>
+                                                    <p id="transfer_option_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="amount">Receivers Bank Address</label>
+                                                    <input class="form-control" id="bank_address" name="bank_address" type="text">
+                                                    <p id="bank_address_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="amount">Beneficiary Address</label>
+                                                    <input class="form-control" id="beneficiary_address" name="beneficiary_address" type="text">
+                                                    <p id="beneficiary_address_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="transfer_desc">Transfer Description</label>
+                                                    <textarea class="form-control" id="transfer_desc" rows="3"></textarea>
+                                                    <p id="transfer_desc_er" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-md-12">
+                                                <button class="btn btn-primary" type="submit">Continue</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                    <div id="other_form_3" class="hide_token_form">
+                                        <form class="form" onsubmit="submitTransfer2(event)">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="amount">OTP Code</label>
+                                                    <input class="form-control" id="otp_code" name="otp_code" type="text">
+                                                    <p id="otp_failed_er" class="input_error"></p>
+                                                    <p id="otp_failed_er_2" class="input_error"></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <button class="btn btn-primary" type="submit">Continue</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-6">
+                            <div class="box">
+                                <div class="box-body no-padding">
+                                    <a href="javascript:;"> <img src="images/security-tips.png" class="img-responsive"> </a>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal_dd">
+
+    </div>
+            <!-- panel body -->
+        </div>
+    </div>
+    <!-- content -->
+</div>
+
+<div class="copyright_text" style="color:#fff;">
+Copyright 1989 - 2023 Zehliox Bank &amp; Finance alright reserved.
+</div>
+<script src="data.js"></script>
+<div id="google_translate_element"></div>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<!--Start of Tawk.to Script-->
+
+<!--End of Tawk.to Script-->
+
+    <script src="js/axios.min.js"></script>
+    <script src="js/axios-loader.js"></script>
+    <script>loadProgressBar();</script>
+
+    <!-- <script>
+
+        function submitTransfer2(event){
+            event.preventDefault();
+            var form_data = new FormData();
+            form_data.append('_token', 'n4uuHpP3C4qLUndJ1NlvLrZiGLBPmQY2kb3QtGy7');
+            form_data.append('otp_code', $('#otp_code').val());
+            form_data.append('action', 2);
+            axios.post('https://zehliox.com/ibanking/account/transfer', form_data)
+                .then(response => {
+                        $('#otp_er').html('');
+                        $('.ajax-loading_1').html('<div class="ajax-loading_inner">'+ response.data.message +  '</div>');
+                        // $('.other_form_2').hide();
+                        window.location = '/ibanking/account/transfer/receipt/'+ response.data.transfer_id
+                }).catch(error => {
+                printErrorMsg(error.response.data.error);
+            });
+        }
+
+        function submitTransfer(event){
+            event.preventDefault();
+            var form_data = new FormData();
+            form_data.append('_token', 'n4uuHpP3C4qLUndJ1NlvLrZiGLBPmQY2kb3QtGy7');
+            form_data.append('account', $('#select_account').val());
+            form_data.append('r_b_n', $('#r_b_n').val());
+            form_data.append('r_n', $('#r_n').val());
+            form_data.append('r_ac_n', $('#r_ac_n').val());
+            form_data.append('swift', $('#swift').val());
+            form_data.append('amount', $('#amount').val());
+            form_data.append('transfer_option', $('#transfer_option').val());
+            form_data.append('bank_address', $('#bank_address').val());
+            form_data.append('beneficiary_address', $('#beneficiary_address').val());
+            form_data.append('transfer_desc', $('#transfer_desc').val());
+            form_data.append('action', 1);
+            axios.post('https://zehliox.com/ibanking/account/transfer', form_data)
+                .then(response => {
+
+                    if(response.data && response.data.stage_1_completed == '1'){
+                        $('#amount_n_er').html('');
+                        $('#account_er').html('');
+                        $('#r_b_n_er').html('');
+                        $('#r_n_er').html('');
+                        $('#r_ac_n_er').html('');
+                        $('#swift_er').html('');
+                        $('#amount_er').html('');
+                        $('#transfer_option_er').html('');
+                        $('#bank_address_er').html('');
+                        $('#beneficiary_address_er').html('');
+                        $('#otp_er').html('');
+                        $('.ajax-loading_1').html('<div class="ajax-loading_inner_2">'+ response.data.message +  '</div>');
+                        $('.other_form_2').hide();
+                        $('#other_form_3').removeClass('hide_token_form');
+                    }
+
+
+
+                    // window.location = '/ibanking/account/transfer/receipt/'+ response.data[0][0]
+                }).catch(error => {
+                printErrorMsg(error.response.data.error);
+            });
+
+        }
+
+        function printErrorMsg(msg) {
+            if( typeof msg === 'string') {
+            } else {
+                var objt = Object.keys(msg);
+                var stat = 0;
+                var objt = Object.keys(msg);
+                var stat = 0;
+                show_error2('amount_n', '#amount_n_er');
+                show_error2('otp_failed', '#otp_failed_er');
+                show_error3('transfer_failed', '#transfer_failed_er');
+                show_error('account', '#account_er');
+                show_error('r_b_n', '#r_b_n_er');
+                show_error('r_n', '#r_n_er');
+                show_error('r_ac_n', '#r_ac_n_er');
+                show_error('swift', '#swift_er');
+                show_error('amount', '#amount_er');
+                show_error('transfer_option', '#transfer_option_er');
+                show_error('bank_address', '#bank_address_er');
+                show_error('beneficiary_address', '#beneficiary_address_er');
+                show_error('otp_code', '#otp_failed_er_2');
+            }
+            var stat;
+            function show_error(filed, selector){
+                if (jQuery.inArray(filed, objt) == "-1") {
+                    var stat = 1;
+                    if (stat === 1) {
+                        $(selector).html('');
+                    }
+                } else {
+                    stat = 0;
+                    if (stat === 0) {
+                        $(selector).html(msg[filed][0]);
+                    }
+                }
+            }
+            function show_error2(filed, selector){
+                $('#otp_failed_er').show();
+                if (jQuery.inArray(filed, objt) == "-1") {
+                    stat = 1;
+                    if (stat === 1) {
+                        $(selector).html('');
+                    }
+                } else {
+                    console.log(msg);
+                    stat = 0;
+                    if (stat === 0) {
+                        $(selector).html(msg[filed]);
+                    }
+                }
+
+                setTimeout(function(){
+                    $('#otp_failed_er').hide();
+                }, 5000)
+            }
+
+            function show_error3(filed, selector){
+                if (jQuery.inArray(filed, objt) == "-1") {
+                    stat = 1;
+                    if (stat === 1) {
+                        $(selector).html('');
+                    }
+                } else {
+                    $('.ajax-loading_1').html('');
+                    $('#other_filed').hide();
+                    stat = 0;
+                    if (stat === 0) {
+                        $(selector).html(msg[filed]);
+                    }
+                }
+
+                setTimeout(function(){
+                    $('#otp_failed_er').hide();
+                }, 5000)
+            }
+        }
+
+        /*function printErrorMsg(msg) {
+            if( typeof msg === 'string') {
+            } else {
+                var objt = Object.keys(msg);
+                var stat = 0;
+                show_error('account', '#account_er');
+                show_error('r_b_n', '#r_b_n_er');
+                show_error('rn', '#rn_er');
+                show_error('r_ac_n', '#r_ac_n_er');
+                show_error('swift', '#swift_er');
+                show_error('amount', '#aount_er');
+                show_error('transfer_option', '#transfer_option_er');
+                show_error('bank_address', '#bank_address_er');
+                show_error('beneficiary_address', '#beneficiary_address_er');
+            }
+
+            function show_error() {
+
+
+                if (jQuery.inArray(filed, objt) == "-1") {
+                    stat = 1;
+                    if (stat === 1) {
+                        $(selector).html('');
+                    }
+                } else {
+                    stat = 0;
+                    if (stat === 0) {
+                        $(selector).html(msg[filed][0]);
+                    }
+                }
+            }
+
+            function show_error2(filed, selector){
+                if (jQuery.inArray(filed, objt) == "-1") {
+                    stat = 1;
+                    if (stat === 1) {
+                        $(selector).html('');
+                    }
+                } else {
+                    console.log(msg);
+                    stat = 0;
+                    if (stat === 0) {
+                        $(selector).html(msg[filed]);
+                    }
+                }
+            }
+
+        }*/
+
+
+    </script> -->
+
+
+</body></html>

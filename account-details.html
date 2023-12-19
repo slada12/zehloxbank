@@ -1,0 +1,175 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Zehliox | Dashboard</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="csrf-token" value="n4uuHpP3C4qLUndJ1NlvLrZiGLBPmQY2kb3QtGy7">
+    <link rel="shortcut icon" href="favicon_16.ico">
+    <link rel="bookmark" href="favicon_16.ico">
+    <!-- site css -->
+    <link rel="stylesheet" href="css/site.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link href="css/css.css" rel="stylesheet" type="text/css">
+        <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'> -->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+    <script src="https://zehliox.com/design_2/dist/js/html5shiv.js"></script>
+    <script src="https://zehliox.com/design_2/dist/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/site.min.js"></script>
+</head>
+
+<body>
+<style>
+
+</style>
+<!--nav-->
+<nav role="navigation" class="navbar navbar-custom">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button data-target="#bs-content-row-navbar-collapse-5" data-toggle="collapse" class="navbar-toggle" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a href="./dashboard.html" class="navbar-brand logo_init_2"></a> </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="bs-content-row-navbar-collapse-5" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="https://zehliox.com/logout">Logout</a></li>
+                <!-- <li class="disabled"><a href="#">Link</a></li> -->
+                <li class="dropdown"> <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <div class="user_avatar_dp" style="
+                background: url(images/f251c299c804c2d9a821c50a1503121611992bcf.jpeg);
+                width: 30px;
+                height: 30px;
+                border-radius: 100px;
+                float: left;
+                background-position: top;
+                background-size: cover;
+                margin-right: 10px;
+                margin-top: -4px;
+
+                "> </div>  <div id="full_name">Loading...</div><b class="caret"></b>
+                <div class="customer_status">Customer</div>
+            </a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="./account-details.html">Account type: Current </a></li>
+                        <li class="divider"></li>
+                        <li><a href="./account-details.html">View Account Details</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<!--header-->
+<div class="container-fluid">
+    <!--documents-->
+    <div class="row row-offcanvas row-offcanvas-left">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="navigation">
+            <ul class="list-group panel">
+                <li class="list-group-item"><a href="./dashboard.html"><i class="glyphicon glyphicon-home"></i>Dashboard </a></li>
+                <li class="list-group-item"><a href="./account-details.html"><i class="glyphicon glyphicon-certificate"></i>Account Details</a></li>
+                <li class="list-group-item"><a href="./transfer.html"><i class="glyphicon glyphicon-th-list"></i>Transfer </a></li>
+                <li class="list-group-item"><a href="./transactions.html"><i class="glyphicon glyphicon-bell"></i>Transactions Statement</a></li>
+
+                <li> <a href="#demo4" class="list-group-item " data-toggle="collapse"><i class=" glyphicon glyphicon-credit-card"></i>Card Management <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <div class="collapse" id="demo4">
+                        
+                        <a href="./card.html" class="list-group-item">Request for Debit / Credit Card </a>
+                    </div>
+                </li>
+
+                <li class="list-group-item"><a href="./loan.html"><i class="glyphicon glyphicon-calendar"></i>Loan</a></li>
+                <li> <a href="#demo3" class="list-group-item " data-toggle="collapse"><i class=" glyphicon glyphicon-cog"></i>Security Settings <span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <div class="collapse" id="demo3">
+                        <a href="./change-password.html" class="list-group-item">Change Password</a>  </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-9 content">
+                <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="javascript:void(0);" class="toggle-sidebar"><span class="fa fa-angle-double-left" data-toggle="offcanvas" title="Maximize Panel"></span></a>Account information</h3> </div>
+        <div class="panel-body">
+            <div class="content-row">
+                <div class="row">
+                    <section class="content-innerr-a">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="box" style="border-top:solid 3px #3c3f76">
+                                <div class="box-header">
+                                    <h3 class="box-title">Current Account</h3>
+                                    <h5 class="box-title pull-right" id="havea">1924371567</h5> </div>
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                        <tr>
+                                            <td>Account Name</td>
+                                            <td id="table_full_name"></td>
+                                        </tr>
+                                     
+                                        
+                                        <tr>
+                                            <td>Account Type</td>
+                                            <td> Current  </td>
+                                        </tr>
+                                         <tr>
+                                            <td>Account Number</td>
+                                            <td> 1924371567  </td>
+                                        </tr>
+                                           <tr>
+                                            <td>Currency</td>
+                                            <td> USD </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Available Balance</td>
+                                            <td>
+                                                <input type="text" id="balance" value="312533" hidden="hidden"> <span class="" style="font-size: 16px;">$</span> <span id="">312,533.00</span> </td>
+                                        </tr>
+                                     
+                                        
+                                      
+                                    
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <!-- /.box-body -->
+
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.col -->
+
+                        <!-- /.col -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- panel body -->
+        </div>
+    </div>
+    <!-- content -->
+</div>
+
+<div class="copyright_text" style="color:#fff;">
+Copyright 1989 - 2023 Zehliox Bank &amp; Finance alright reserved.
+</div>
+<div id="google_translate_element"></div>
+<script src="data.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="js/element.js"></script>
+
+<!--Start of Tawk.to Script-->
+
+<!--End of Tawk.to Script-->
+    <script src="js/print.js"></script>
+
+
+</body></html>
