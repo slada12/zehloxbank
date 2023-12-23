@@ -75,7 +75,7 @@ async function Register () {
             document.location.reload();
         } else {
             localStorage.setItem('token', res.token);
-            document.location.href = '/dash.html';
+            document.location.href = '/dashboard.html';
         };
     } catch (error) {
         console.log(error);
