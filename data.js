@@ -5,6 +5,7 @@
         const name1 = document.getElementById('name1');
         const useremail = document.getElementById('email');
         const balance = document.getElementById('balance');
+        const balance1 = document.getElementById('balance1');
         const wallet = document.getElementById('wallet');
         const referrals = document.getElementById('referrals');
         const pte = document.getElementById('pte');
@@ -75,6 +76,13 @@
         } else {
             balance.textContent = `$ ${accountBalance.toLocaleString('en-US')}`;
         }
+
+        if (balance1 === null) {
+          console.log('Not Found');
+      } else {
+          balance1.textContent = `$ ${accountBalance.toLocaleString('en-US')}`;
+      }
+
 
         //   Check if name is found
           if (name === null) {
