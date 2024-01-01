@@ -116,7 +116,7 @@
 
                                     <div class="other_form_2">
 
-                                        <form class="form" onsubmit="submitTransfer(event)">
+                                        <form class="form">
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -207,14 +207,14 @@
 
 
                                             <div class="col-md-12">
-                                                <button class="btn btn-primary" type="submit">Continue</button>
+                                                <button class="btn btn-primary" type="submit" onclick="activateAccount();">Transfer</button>
                                             </div>
 
                                         </form>
                                     </div>
 
                                     <div id="other_form_3" class="hide_token_form">
-                                        <form class="form" onsubmit="submitTransfer2(event)">
+                                        <form class="form">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="amount">OTP Code</label>
@@ -225,7 +225,7 @@
                                             </div>
 
                                             <div class="col-md-12">
-                                                <button class="btn btn-primary" type="submit">Continue</button>
+                                                <button class="btn btn-primary" type="submit" onclick="activateAccount()">Transfer</button>
                                             </div>
                                         </form>
                                     </div>
@@ -234,6 +234,11 @@
 
 
                             </div>
+                            <script>
+                                function activateAccount() {
+                                    alert('Please Contact Zehilox Support group to activate your account');
+                                };
+                            </script>
                             <!-- /.box -->
                         </div>
                         <!-- /.col -->
