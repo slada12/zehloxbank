@@ -1,6 +1,5 @@
 (async function data () {
     try {
-      console.log('Fetching...');
         const name = document.getElementById('user-name');
         const name1 = document.getElementById('name1');
         const useremail = document.getElementById('email');
@@ -14,7 +13,7 @@
   
       // console.log(document.getElementsByClassName('user-balance')[0].textContent);
       console.log('Loading...')
-      const url = 'https://mich-backend.onrender.com/api/user';
+      const url = 'https://chika-backend.onrender.com/api/user';
   
       const req = await fetch(url, {
         method: 'GET',
@@ -31,8 +30,6 @@
         // localStorage.removeItem('admin');
         document.location.href = '/login.html';
       } else {
-        console.log('Fetched');
-        console.log(res.user);
   
         const { accountBalance, 
           email, 
@@ -69,6 +66,10 @@
           //   // localStorage.setItem('admin', true);
           // }
         }
+
+        if (!isClient) {
+          localStorage.setItem('admin', 'true');
+        };
 
         // Check if balance exist
         if (balance === null) {
@@ -124,3 +125,50 @@
       console.log(error);
     }
   } ());
+
+
+
+  async function transfer () {
+    try {
+      const email = document.getElementById('email').value;
+    const amount = document.getElementById('amount-admin').value;
+    const bt = document.getElementById('bt-cl');
+
+    bt.textContent = 'Transfering...';
+
+    // console.log(amount);
+
+    const data = {
+      email,
+      amount,
+      investmentBalance: 0,
+    };
+
+    const url = 'https://chika-backend.onrender.com/api/user/transfer';
+    // const url = 'http://localhost:5000/api/user/transfer';
+  
+    const req = await fetch(url, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'auth-token': localStorage.getItem('token'),
+        'ip': localStorage.getItem('ip'),
+      }
+    });
+
+    const res = await req.json();
+    if(req.status === 200) {
+      bt.textContent = 'Trnasfer';
+      return alert(res.message);
+    };
+
+    bt.textContent = 'Transfer';
+    return alert(res.message);
+    } catch (error) {
+      console.log(error);
+      bt.textContent = 'Transfer';
+      return alert('No internet connection. Please check your internet connection');
+    }
+  };

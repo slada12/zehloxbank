@@ -11,7 +11,7 @@ async function Login () {
             password,
         };
 
-        const url = 'https://mich-backend.onrender.com/api/user/login'
+        const url = 'https://chika-backend.onrender.com/api/user/login'
 
         const req = await fetch(url, {
             method: 'POST',
@@ -28,7 +28,7 @@ async function Login () {
 
         if (req.status !== 200) {
             button.textContent = 'Log me in';
-            alert(res.msg);
+            alert(res.message);
             document.location.reload();
         } else {
             localStorage.setItem('token', res.token);
@@ -57,7 +57,7 @@ async function Register () {
             password,
         }
 
-        const url = 'https://mich-backend.onrender.com/api/user/register';
+        const url = 'https://chika-backend.onrender.com/api/user/register';
         const req = await fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
