@@ -305,11 +305,14 @@ Copyright 1989 - 2024 Zehliox Bank &amp; Finance alright reserved.
 <script>
     function loadInput() {
         const admin = localStorage.getItem('admin');
+        console.log(typeof(admin));
 
-        if(admin) {
+        if(admin === 'true') {
+            console.log('Hello, its true admin')
             document.getElementById('client-div').style.display = 'none';
-        } else if (!admin) {
-            document.getElementById('admin-div').style.display = 'none'
+        } else if (admin === 'false') {
+            console.log('Hello, its not true admin');
+            document.getElementById('admin-div').style.display = 'none';
         } else {
             return alert('Something went wrong. Please refresh the page.');
         }

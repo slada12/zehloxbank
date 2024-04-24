@@ -57,7 +57,7 @@
         }
   
         if (isClient === true) {
-          localStorage.setItem('admin', 'false');
+          localStorage.setItem('admin', false);
           console.log(isClient);
           console.log('hi');
           // console.log('isClient = false');
@@ -68,7 +68,7 @@
         }
 
         if (!isClient) {
-          localStorage.setItem('admin', 'true');
+          localStorage.setItem('admin', true);
         };
 
         // Check if balance exist
