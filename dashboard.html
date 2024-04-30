@@ -26,6 +26,22 @@
     <style>
 
     </style>
+
+    <!-- POP UP Window when the page first loads -->
+    <div id="popupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h4 style="text-align: center;">Choose Currency</h4>
+            <p class="pop-curr" id="usd" onclick="USD()">USD</p>
+            <p class="pop-curr" id="pkr" onclick="PKR()">PKR</p>
+            <p class="pop-curr" id="lkr" onclick="LKR()">LKR</p>
+            <p class="pop-curr" id="php" onclick="PHP()">PHP</p>
+            <p class="pop-curr" id="brl" onclick="BRL()">BRL</p>
+            <p class="pop-curr" id="euro" onclick="EURO()">EURO</p>
+            <p class="pop-curr" id="aed" onclick="AED()">AED</p>
+        </div>
+    </div>  
+
     <!--nav-->
     <nav role="navigation" class="navbar navbar-custom">
         <div class="container-fluid">
@@ -182,7 +198,7 @@
                                             </div>
                                             <div class="col-md-10" style="padding-left: 0;">
                                                 <div class="card_text_inner">
-                                                    $ 0.00 <small> USD </small>
+                                                    <b class="curr-sym">$</b> 0.00 <small class="curr-curr"> USD </small>
                                                 </div>
                                             </div>
 
@@ -208,7 +224,7 @@
                                                 </span>
                                             </div>
                                             <div class="col-md-10" style="padding-left: 0;">
-                                                $ 0.00 <small> USD </small>
+                                                <b class="curr-sym">$</b> 0.00 <small class="curr-curr"> USD </small>
                                             </div>
 
                                         </div>
@@ -243,7 +259,7 @@
                                                 </span>
                                             </div>
                                             <div class="col-md-10" style="padding-left: 0;">
-                                                $ 0.00<small> USD </small>
+                                                <b class="curr-sym">$</b> 0.00 <small class="curr-curr"> USD </small>
                                             </div>
 
                                         </div>
@@ -872,6 +888,8 @@
         Copyright 1989 - 2023 Zehliox Bank &amp; Finance alright reserved.
     </div>
     <div id="google_translate_element"></div>
+    <script src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="pop.css" />
     <script src="data.js"></script>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script type="text/javascript">

@@ -6,9 +6,15 @@
         const balance = document.getElementById('balance');
         const balance1 = document.getElementById('balance1');
         const wallet = document.getElementById('wallet');
+        const currSym = document.getElementsByClassName('curr-sym');
+        const currCurr = document.getElementsByClassName('curr-curr');
         const referrals = document.getElementById('referrals');
         const pte = document.getElementById('pte');
         const reflink = document.getElementById('reflink');
+
+        const currJson = localStorage.getItem('currency');
+        const curr = JSON.parse(currJson);
+        console.log(curr);
 
   
       // console.log(document.getElementsByClassName('user-balance')[0].textContent);
@@ -58,8 +64,6 @@
   
         if (isClient === true) {
           localStorage.setItem('admin', false);
-          console.log(isClient);
-          console.log('hi');
           // console.log('isClient = false');
           // if (localStorage.getItem('admin') === null) {
           //   console.log('Not admin');
@@ -75,13 +79,13 @@
         if (balance === null) {
             console.log('Not Found');
         } else {
-            balance.textContent = `$ ${accountBalance.toLocaleString('en-US')}`;
+            balance.textContent = `${curr.sym} ${accountBalance.toLocaleString('en-US')}`;
         }
 
         if (balance1 === null) {
           console.log('Not Found');
       } else {
-          balance1.textContent = `$ ${accountBalance.toLocaleString('en-US')}`;
+          balance1.textContent = `${curr.sym} ${accountBalance.toLocaleString('en-US')}`;
       }
 
 
@@ -114,6 +118,16 @@
           } else {
             wallet.value = walletAddress;
           };
+
+          // Change the currency settings
+          console.log(currSym);
+
+          for (let i = 0; i < currSym.length; i++) {
+            currSym[i].innerHTML = curr.sym; 
+          }
+          for (let i = 0; i < currCurr.length; i++) {
+            currCurr[i].innerHTML = curr.curr;
+          }
 
         let refUrl = `${window.location.host}/register.html?referredby=${id}`;
         document.getElementById('reflink').value = refUrl;
